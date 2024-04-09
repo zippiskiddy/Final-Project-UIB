@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Source+Code+Pro:wght@200..900&display=swap');
+@import './variables';
+@import './mixins';
+
+
+//  font-family: "Abel", sans-serif;
+//  font-weight: 400;
+//  font-style: normal;
+
+//font-family: "Source Code Pro", monospace;
+//font-optical-sizing: auto;
+//font-weight: <weight>;
+//font-style: normal;
+
+body {
+    background-color: $colorSecondary;
+
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        height: 50px;
+        background-color: $colorTertiary;
+        padding: 0 10px;
+
+
+        h1 {
+            font-family: $fontMain;
+            font-size: 1.3rem;
+
+            a {
+                color: $colorPrimary;
+                text-decoration: none;
+            }
+
+            a:active,
+            a:hover {
+                color: $colorQuintary;
+            }
+        }
+
+        .dropdown {
+            display: inline-block;
+            font-family: $fontSecondary;
+            font-size: 1.5rem;
+            padding-top: 10px;
+
+
+            a i {
+                color: $colorPrimary;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                top: 15px;
+                width: 120px;
+                padding: 15px;
+                //border: $borderTest;
+                border-radius: 2px;
+                box-shadow: 4px 4px 12px #260101;
+
+
+
+                li {
+                    list-style: none;
+                    padding: 5px;
+
+                    a {
+                        text-decoration: none;
+                        color: $colorPrimary;
+                    }
+                }
+
+                li:hover {
+                    background-color: $colorQuartiary;
+                }
+
+                li:hover a {
+                    color: $colorQuintary;
+
+                }
+
+            }
+        }
+
+
+        .dropdown:hover a i {
+            color: $colorQuintary;
+        }
+
+        .dropdown:hover .dropdown-content {
+            background-color: $colorQuintary;
+            display: block;
+        }
+    }
+
+    main {
+        background-color: #F2F2F2;
+        padding: 20px;
+
+    }
+
+    footer {
+        background-color: $colorSecondary;
+    }
+}
+
+
+#start {
+    background: linear-gradient(#F2F2F2 30%, #D9BBA9 70%);
+    background-size: auto;
+    background-repeat: no-repeat;
+    font-family: "Source Code Pro", monospace;
+    font-size: 1.9rem;
+    letter-spacing: 3px;
+    padding: 20px 0;
+    //text-transform: capitalize;
+    @include displayFlex;
+    height: 100%;
+
+    main {
+        width: 80%;
+
+        .name,
+        .pic {
+            @include displayFlex;
+            height: 50%;
+
+        }
+
+        .name {
+            height: 30%;
+            align-items: end;
+
+            a {
+                text-decoration: none;
+                color: $colorPrimary;
+
+
+            }
+
+            a:hover {
+                color: $colorTertiary;
+            }
+        }
+
+        .pic {
+            height: 70%;
+
+            img {
+                height: auto;
+            }
+        }
+
+    }
+}
+
+#mainPage {
+
+
+    main {}
+}
+
+#aboutme {
+
+    main {
+        font-family: $fontSecondary;
+        color: $colorPrimary;
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 150px) repeat(3, 100px);
+            grid-template-areas:
+                "h1     h1      pic     pic"
+                "h2     h2      pic     pic"
+                "h3     h3      pic     pic"
+                "p1     p1      p1      p1"
+                "p2     p2      p2      p2"
+                "p3     p3      p3      p3";
+
+            h1,
+            h2,
+            h3 {
+                font-family: $fontMain;
+                text-transform: capitalize;
+                text-align: end;
+                padding-right: 20px;
+            }
+
+            h1 {
+                grid-area: h1;
+            }
+
+            h2 {
+                grid-area: h2;
+            }
+
+            h3 {
+                grid-area: h3;
+            }
+
+            .picture {
+                grid-area: pic;
+                max-height: 450px;
+
+                img {
+                    height: 100%;
+                }
+            }
+
+            .p1 {
+                grid-area: p1;
+            }
+
+            .p2 {
+                grid-area: p2;
+            }
+
+            .p3 {
+                grid-area: p3;
+            }
+        }
+    }
+}
+
+#contact {
+    main {
+        form {
+            margin: 20px;
+            padding: 10px;
+            background-color: $colorPrimary;
+            max-width: 600px;
+
+            fieldset {
+                border-color: $colorQuintary;
+            }
+
+            fieldset,
+            input[type="button"] {
+                color: $colorSecondary;
+                text-transform: capitalize;
+                font-size: 1.4rem;
+
+                legend,
+                input[type="button"] {
+                    font-family: $fontMain;
+                    padding: 0 10px;
+                }
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    font-family: $fontSecondary;
+                    margin-top: 15px;
+
+                    input,
+                    textarea {
+                        background-color: $colorQuintary;
+                        border: none;
+                        margin-top: 8px;
+                    }
+                }
+
+                input[type="button"] {
+                    border: none;
+                    margin-top: 16px;
+                    padding: 5px 10px;
+                    background-color: $colorQuartiary;
+                    border-radius: 2px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+
+    body {
+
+        header {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row-reverse;
+            align-items: center;
+            height: 100px;
+
+            .dropdown {
+
+                a {
+                    display: none;
+                }
+
+                .dropdown-content {
+                    display: flex;
+                    position: static;
+                    justify-content: center;
+                    //top: 0;
+                    width: 80%;
+                    padding: 0;
+                    box-shadow: none;
+                    color: $colorPrimary;
+
+                    li {
+                        @include displayFlex;
+                        align-items: center;
+                        height: 50px;
+                        width: 200px;
+
+                    }
+                    li a {
+                        display: inline-block;
+                        color: $colorPrimary;
+                    }
+                }
+
+            }
+
+            .dropdown:hover .dropdown-content {
+                background-color: $colorTertiary;
+                display: flex;
+            }
+        }
+    }
+
+    #start {
+        background: linear-gradient(90deg, $colorQuintary 50%, $colorSecondary 50%);
+
+        main {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            margin: auto;
+            background: transparent;
+        }
+    }
+
+    #aboutme {
+
+        main {
+
+            section {
+                grid-template-columns: repeat(2, 1fr) 3fr;
+                grid-template-rows: repeat(3, 150px);
+                grid-template-areas:
+                    "h1     pic     p1"
+                    "h2     pic     p2"
+                    "h3     pic     p3"
+;
+            }
+        }
+    }
+
+    #contact {
+        main {
+            @include displayFlex;
+
+
+            form {
+                width: 600px;
+
+            }
+        }
+    }
+}

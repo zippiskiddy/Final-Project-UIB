@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../scss/style.css">
+</head>
+
+<body id="contact">
+    <header>
+        <nav class="dropdown">
+            <a href="#"><i class="fa-solid fa-bars"></i></a>
+            <ul class="dropdown-content">
+                <li><a href="./main.html">Main</a></li>
+                <li><a href="./aboutme.html">About Me</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <h1><a href="/index.html">ann-kristin eisele #web_developer</a></h1>
+    </header>
+
+    <main>
+        <form action="" method="post" id="form">
+            <fieldset>
+                <legend>contact me</legend>
+
+                <div id="name">
+                    <label for="name">your name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div id="email">
+                    <label for="email">your email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div id="textarea">
+                    <label for="textarea">your message</label>
+                    <textarea name="textarea" id="textarea" cols="30" rows="5" minlength="160" required></textarea>
+                </div>
+
+                <input type="button" value="submit">
+
+            </fieldset>
+        </form>
+    </main>
+
+    <footer>
+        
+    </footer>
+
+</body>
+
+</html>
