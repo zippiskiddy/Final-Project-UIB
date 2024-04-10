@@ -3,47 +3,41 @@
 @import './mixins';
 
 
-//  font-family: "Abel", sans-serif;
-//  font-weight: 400;
-//  font-style: normal;
-
-//font-family: "Source Code Pro", monospace;
-//font-optical-sizing: auto;
-//font-weight: <weight>;
-//font-style: normal;
+a {
+    @include link
+}
 
 body {
     background-color: $colorSecondary;
+    color: $colorPrimary;
+    //box-sizing: border-box;
 
 
     header {
         display: flex;
-        justify-content: space-between;
-        height: 50px;
+        justify-content: space-around;
+        height: 100px;
         background-color: $colorTertiary;
         padding: 0 10px;
 
 
         h1 {
             font-family: $fontMain;
-            font-size: 1.3rem;
-
-            a {
-                color: $colorPrimary;
-                text-decoration: none;
-            }
+            font-size: 1.2rem;
+            max-width: 50%;
+            text-align: end;
 
             a:active,
             a:hover {
-                color: $colorQuintary;
+                color: $colorQuinary;
             }
         }
 
         .dropdown {
             display: inline-block;
             font-family: $fontSecondary;
-            font-size: 1.5rem;
-            padding-top: 10px;
+            font-size: 2rem;
+            padding-top: 30px;
 
 
             a i {
@@ -53,32 +47,27 @@ body {
             .dropdown-content {
                 display: none;
                 position: absolute;
-                top: 15px;
-                width: 120px;
+                top: 30px;
+                width: 80px;
                 padding: 15px;
-                //border: $borderTest;
                 border-radius: 2px;
-                box-shadow: 4px 4px 12px #260101;
+                box-shadow: 4px 4px 12px $colorPrimary;
 
 
 
                 li {
                     list-style: none;
                     padding: 5px;
+                    font-size: 1rem;
 
-                    a {
-                        text-decoration: none;
-                        color: $colorPrimary;
-                    }
                 }
 
                 li:hover {
-                    background-color: $colorQuartiary;
+                    background-color: $colorQuaternary;
                 }
 
                 li:hover a {
-                    color: $colorQuintary;
-
+                    color: $colorQuinary;
                 }
 
             }
@@ -86,59 +75,55 @@ body {
 
 
         .dropdown:hover a i {
-            color: $colorQuintary;
+            color: $colorQuinary;
         }
 
         .dropdown:hover .dropdown-content {
-            background-color: $colorQuintary;
+            background-color: $colorQuinary;
             display: block;
         }
     }
 
     main {
-        background-color: #F2F2F2;
-        padding: 20px;
-
+        background-color: $colorQuinary;
     }
 
     footer {
         background-color: $colorSecondary;
+        @include displayFlex;
+        font-size: 3rem;
+        padding: 20px;
+
+        a i {
+            color: $colorPrimary;
+
+        }
     }
 }
 
-
 #start {
-    background: linear-gradient(#F2F2F2 30%, #D9BBA9 70%);
+    background: linear-gradient($colorQuinary 30%, $colorSecondary 70%);
     background-size: auto;
     background-repeat: no-repeat;
     font-family: "Source Code Pro", monospace;
-    font-size: 1.9rem;
+    font-size: 1rem;
     letter-spacing: 3px;
-    padding: 20px 0;
-    //text-transform: capitalize;
-    @include displayFlex;
     height: 100%;
 
     main {
-        width: 80%;
+        @include displayFlex;
+        flex-direction: column;
+        height: 100vh;
+        background: transparent;
 
         .name,
         .pic {
             @include displayFlex;
-            height: 50%;
 
         }
 
         .name {
-            height: 30%;
             align-items: end;
-
-            a {
-                text-decoration: none;
-                color: $colorPrimary;
-
-
-            }
 
             a:hover {
                 color: $colorTertiary;
@@ -146,10 +131,10 @@ body {
         }
 
         .pic {
-            height: 70%;
+            background: none;
 
             img {
-                height: auto;
+                width: 320px;
             }
         }
 
@@ -158,8 +143,152 @@ body {
 
 #mainPage {
 
+    main {
+        text-align: center;
+        height: 70vh;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        //padding: 20px;
 
-    main {}
+        .big {
+            font-family: $fontMain;
+            font-size: 1.7rem;
+            line-height: 2rem;
+            position: absolute;
+            top: 200px;
+
+
+            .just {
+                text-align: start;
+            }
+
+            .imagine {
+                position: relative;
+                left: 50px;
+            }
+
+            .just :first-child,
+            .just :nth-child(2),
+            .just :nth-child(3),
+            .just :nth-child(4),
+            .imagine :first-child,
+            .imagine :nth-child(2),
+            .imagine :nth-child(3),
+            .imagine :nth-child(4),
+            .imagine :nth-child(5),
+            .imagine :nth-child(6),
+            .imagine :nth-child(7),
+            .imagine :nth-child(8),
+            .imagine :nth-child(9) {
+                animation-name: justimagine;
+                animation-duration: 5.6s;
+                animation-timing-function: ease-in;
+                animation-fill-mode: forwards;
+                opacity: 0;
+            }
+
+            .just :first-child {
+                animation-delay: 0.4s;
+            }
+
+            .just :nth-child(2) {
+                animation-delay: 0.8s;
+            }
+
+            .just :nth-child(3) {
+                animation-delay: 1.2s;
+            }
+
+            .just :nth-child(4) {
+                animation-delay: 1.6s;
+            }
+
+            .imagine :first-child {
+                animation-delay: 2.0s;
+            }
+
+            .imagine :nth-child(2) {
+                animation-delay: 2.4s;
+            }
+
+            .imagine :nth-child(3) {
+                animation-delay: 2.8s;
+            }
+
+            .imagine :nth-child(4) {
+                animation-delay: 3.2s;
+            }
+
+            .imagine :nth-child(5) {
+                animation-delay: 3.6s;
+            }
+
+            .imagine :nth-child(6) {
+                animation-delay: 4.0s;
+            }
+
+            .imagine :nth-child(7) {
+                animation-delay: 4.4s;
+            }
+
+            .imagine :nth-child(8) {
+                animation-delay: 4.8s;
+            }
+
+            .imagine :nth-child(9) {
+                animation-delay: 5.2s;
+            }
+
+
+            @keyframes justimagine {
+                0% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+
+                }
+
+            }
+
+        }
+
+        p {
+            font-family: $fontSecondary;
+            animation-name: fontIn;
+            animation-duration: 6s;
+            animation-timing-function: ease-in;
+            animation-delay: 5s;
+            animation-fill-mode: forwards;
+            white-space: nowrap;
+            font-size: 1rem;
+            opacity: 0;
+        }
+
+        @keyframes fontIn {
+            0% {
+                z-index: -5;
+                width: 800px;
+                overflow: hidden;
+                font-size: 14rem;
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+
+            60% {
+                opacity: 0;
+            }
+
+            100% {
+                display: block;
+                font-size: 1rem;
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+    }
 }
 
 #aboutme {
@@ -170,22 +299,22 @@ body {
 
         section {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(3, 150px) repeat(3, 100px);
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 50px) 300px repeat(3, 1fr);
             grid-template-areas:
-                "h1     h1      pic     pic"
-                "h2     h2      pic     pic"
-                "h3     h3      pic     pic"
-                "p1     p1      p1      p1"
-                "p2     p2      p2      p2"
-                "p3     p3      p3      p3";
+                "h1     h1"
+                "h2     h2"
+                "h3     h3"
+                "pic    pic"
+                "p1     p1"
+                "p2     p2"
+                "p3     p3";
 
             h1,
             h2,
             h3 {
                 font-family: $fontMain;
                 text-transform: capitalize;
-                text-align: end;
                 padding-right: 20px;
             }
 
@@ -204,10 +333,17 @@ body {
             .picture {
                 grid-area: pic;
                 max-height: 450px;
+                text-align: end;
 
                 img {
                     height: 100%;
+                    width: auto;
                 }
+            }
+
+            h5 {
+                @include headlines;
+
             }
 
             .p1 {
@@ -220,6 +356,10 @@ body {
 
             .p3 {
                 grid-area: p3;
+
+                a:hover {
+                    font-size: larger;
+                }
             }
         }
     }
@@ -228,13 +368,11 @@ body {
 #contact {
     main {
         form {
-            margin: 20px;
-            padding: 10px;
+            margin: 20px 0;
             background-color: $colorPrimary;
-            max-width: 600px;
 
             fieldset {
-                border-color: $colorQuintary;
+                border-color: $colorQuinary;
             }
 
             fieldset,
@@ -257,7 +395,7 @@ body {
 
                     input,
                     textarea {
-                        background-color: $colorQuintary;
+                        background-color: $colorQuinary;
                         border: none;
                         margin-top: 8px;
                     }
@@ -267,9 +405,196 @@ body {
                     border: none;
                     margin-top: 16px;
                     padding: 5px 10px;
-                    background-color: $colorQuartiary;
+                    background-color: $colorQuaternary;
                     border-radius: 2px;
                 }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 768px) {
+
+    body {
+
+        header {
+            justify-content: space-between;
+            height: 110px;
+
+            h1 {
+                font-size: 1.5rem;
+
+                a:active,
+                a:hover {
+                    color: $colorQuinary;
+                }
+            }
+
+            .dropdown {
+                display: inline-block;
+                font-size: 2.5rem;
+
+                a i {
+                    color: $colorPrimary;
+                }
+
+                .dropdown-content {
+                    display: none;
+                    position: absolute;
+                    top: 15px;
+                    width: 120px;
+                    padding: 15px;
+                    border-radius: 2px;
+                    box-shadow: 4px 4px 12px $colorPrimary;
+
+                }
+            }
+
+        }
+
+        main {
+            padding: 20px;
+
+        }
+    }
+
+
+    #start {
+        font-size: 1.9rem;
+        padding: 20px 0;
+        @include displayFlex;
+
+        main {
+            width: 80%;
+
+            .name,
+            .pic {
+                height: 50%;
+            }
+
+            .name {
+                height: 30%;
+
+                a:hover {
+                    color: $colorTertiary;
+                }
+            }
+
+            .pic {
+                height: 70%;
+
+                img {
+                    width: auto;
+                    height: auto;
+                }
+            }
+
+        }
+    }
+
+    #mainPage {
+        main {
+            .big {
+                font-family: $fontMain;
+                font-size: 4rem;
+                line-height: 5rem;
+                position: absolute;
+                top: 200px;
+
+
+                .just {
+                    text-align: start;
+                }
+
+                .imagine {
+                    position: relative;
+                    left: 50px;
+                }
+            }
+
+            p {
+                font-family: $fontSecondary;
+                animation-name: fontIn;
+                animation-duration: 6s;
+                animation-timing-function: ease-in;
+                animation-delay: 5s;
+                animation-fill-mode: forwards;
+                white-space: nowrap;
+                font-size: 3rem;
+                opacity: 0;
+            }
+
+            @keyframes fontIn {
+                0% {
+                    z-index: -5;
+                    width: 800px;
+                    overflow: hidden;
+                    font-size: 14rem;
+                    opacity: 0;
+                    transform: translateX(-200px);
+                }
+    
+                60% {
+                    opacity: 0;
+                }
+    
+                100% {
+                    display: block;
+                    font-size: 3rem;
+                    opacity: 1;
+                    transform: translateX(0px);
+                }
+            }
+        }
+    }
+
+    #aboutme {
+
+        main {
+
+            section {
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(3, 150px) repeat(3, 1fr);
+                grid-template-areas:
+                    "h1     h1      pic     pic"
+                    "h2     h2      pic     pic"
+                    "h3     h3      pic     pic"
+                    "p1     p1      p1      p1"
+                    "p2     p2      p2      p2"
+                    "p3     p3      p3      p3";
+
+
+                .picture {
+                    max-height: 450px;
+
+                    img {
+                        height: 100%;
+                        width: auto;
+                    }
+                }
+
+                .p3 {
+
+                    a:hover {
+                        font-size: larger;
+                    }
+                }
+            }
+        }
+    }
+
+    #contact {
+        main {
+            @include displayFlex;
+            //justify-content: center;
+
+            form {
+                width: 100%;
+                margin: 20px;
+                padding: 10px;
+                max-width: 600px;
+
             }
         }
     }
@@ -287,6 +612,10 @@ body {
             height: 100px;
 
             .dropdown {
+                @include displayFlex;
+                //width: 380px;
+                padding: 0;
+                //height: 100px;
 
                 a {
                     display: none;
@@ -299,16 +628,20 @@ body {
                     //top: 0;
                     width: 80%;
                     padding: 0;
+                    margin: 0;
+                    gap: 20px;
                     box-shadow: none;
                     color: $colorPrimary;
 
                     li {
                         @include displayFlex;
+                        font-size: 1.5rem;
                         align-items: center;
-                        height: 50px;
-                        width: 200px;
+                        padding: 15px;
+                        min-width: 100px;
 
                     }
+
                     li a {
                         display: inline-block;
                         color: $colorPrimary;
@@ -322,19 +655,80 @@ body {
                 display: flex;
             }
         }
+
+        footer {
+            a:hover i {
+                color: $colorQuinary;
+                font-size: larger;
+            }
+        }
     }
 
     #start {
-        background: linear-gradient(90deg, $colorQuintary 50%, $colorSecondary 50%);
+        background: linear-gradient(90deg, $colorQuinary 50%, $colorSecondary 50%);
 
         main {
             display: flex;
             justify-content: space-around;
             align-items: center;
+            flex-direction: row;
             height: 100vh;
             width: 100%;
             margin: auto;
             background: transparent;
+        }
+    }
+
+    #mainPage {
+
+        main {
+
+            .big {
+                font-family: $fontMain;
+                font-size: 7rem;
+                line-height: 7rem;
+                position: absolute;
+                top: 200px;
+                left: 200px;
+
+
+                .just {
+                    text-align: start;
+                }
+
+                .imagine {
+                    position: relative;
+                    left: 200px;
+                }
+            }
+
+            p {
+                position: absolute;
+                top: 500px;
+                left: 600px;
+            }
+
+            @keyframes fontIn {
+                0% {
+                    z-index: -5;
+                    width: 800px;
+                    overflow: hidden;
+                    font-size: 14rem;
+                    opacity: 0;
+                    //transform: translateX(-200px);
+                }
+    
+                60% {
+                    opacity: 0;
+                }
+    
+                100% {
+                    display: block;
+                    font-size: 3rem;
+                    opacity: 1;
+                    transform: translateX(0px);
+                }
+            }
         }
     }
 
@@ -348,8 +742,16 @@ body {
                 grid-template-areas:
                     "h1     pic     p1"
                     "h2     pic     p2"
-                    "h3     pic     p3"
-;
+                    "h3     pic     p3";
+                column-gap: 10px;
+                margin: 0 100px;
+
+                h1,
+                h2,
+                h3 {
+                    text-align: start;
+
+                }
             }
         }
     }

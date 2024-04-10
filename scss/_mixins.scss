@@ -2,3 +2,14 @@
     display: flex;
     justify-content: center;
 }
+
+@mixin headlines {
+    font-family: $fontMain;
+    text-transform: capitalize;
+    color: $colorPrimary;
+}
+
+@mixin link {
+    text-decoration: none;
+    color: $colorPrimary;
+}
